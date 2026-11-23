@@ -20,16 +20,16 @@ Choosing insurance can be difficult because of complex policy terms, different c
 ## Screenshots
 
 ### Home Page
-![Home Page](screenshots/home.png)
+![Home Page](templates/screenshots/home.png)
 
 ### User Input Page
-![User Input](screenshots/input.png)
+![User Input](templates/screenshots/input.png)
 
 ### Recommendations Page
-![Recommendations](screenshots/recommendation.png)
+![Recommendations](templates/screenshots/recommendation.png)
 
 ### Policy Comparison
-![Policy Comparison](screenshots/comparison.png)
+![Policy Comparison](templates/screenshots/comparison.png)
 
 ## Technologies Used
 - Python
