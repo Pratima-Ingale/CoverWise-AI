@@ -17,6 +17,20 @@ Choosing insurance can be difficult because of complex policy terms, different c
 - Simple and responsive user interface
 - AI-generated explanations for recommendations
 
+## Screenshots
+
+### Home Page
+![Home Page](screenshots/home.png)
+
+### User Input Page
+![User Input](screenshots/input.png)
+
+### Recommendations Page
+![Recommendations](screenshots/recommendation.png)
+
+### Policy Comparison
+![Policy Comparison](screenshots/comparison.png)
+
 ## Technologies Used
 - Python
 - Flask
