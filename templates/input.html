@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}Property Input – CoverWise AI{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <span class="badge badge-blue" style="margin-bottom: 0.5rem;">Property & Casualty Input</span>
+        <h2>Enter Property & Insurance Details</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Provide your property valuation, building age, and budget to find the top 3 P&C policies.
+        </p>
+    </div>
+
+    <!-- Quick Example Pre-Fill Toolbar -->
+    <div class="form-card" style="margin-bottom: 1.5rem; padding: 1rem 1.5rem; background: var(--bg-light-blue); border: 1px dashed var(--primary-blue);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+            <span style="font-weight: 600; font-size: 0.9rem; color: var(--primary-blue);">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> 1-Click Test Examples:
+            </span>
+            <div class="quick-fill-btns">
+                <button type="button" class="btn-pill" onclick="fillExample('apartment')">Apartment Flat (₹45L Value, ₹6k Budget)</button>
+                <button type="button" class="btn-pill" onclick="fillExample('house')">Independent Villa (₹1.2 Cr Value, ₹15k Budget)</button>
+                <button type="button" class="btn-pill" onclick="fillExample('commercial')">Commercial Shop (₹60L Value, ₹10k Budget)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clean Input Form Card -->
+    <div class="form-card">
+        <form id="customerInputForm">
+            <!-- 1. Property Type -->
+            <div class="form-group">
+                <label class="form-label" for="property_type">
+                    <i class="fa-solid fa-building" style="color: var(--primary-blue); margin-right: 0.3rem;"></i> Property Type
+                </label>
+                <select id="property_type" class="form-control" required>
+                    <option value="Residential Apartment" selected>Residential Apartment / Flat</option>
+                    <option value="Homeowners Comprehensive">Independent House / Villa (Homeowners Comprehensive)</option>
+                    <option value="Commercial Property">Commercial Property (Retail Shop, Office, Showroom)</option>
+                    <option value="Renters Contents & Liability">Renters / Tenant (Contents & Personal Liability)</option>
+                    <option value="Landlord Shield">Landlord Property (Rental Loss & Building Shield)</option>
+                    <option value="All">All Categories / Best Match</option>
+                </select>
+                <div class="form-hint">Select the category that best describes your property.</div>
+            </div>
+
+            <!-- 2. Property / Asset Valuation -->
+            <div class="form-group">
+                <label class="form-label" for="property_value">
+                    <i class="fa-solid fa-calculator" style="color: var(--primary-blue); margin-right: 0.3rem;"></i> Estimated Property Valuation (₹)
+                </label>
+                <input type="number" id="property_value" class="form-control" placeholder="e.g. 5000000" min="200000" step="100000" required value="5000000">
+                <div class="form-hint">Approximate rebuilding cost of structure plus household contents.</div>
+            </div>
+
+            <!-- 3. Property Age -->
+            <div class="form-group">
+                <label class="form-label" for="property_age">
+                    <i class="fa-solid fa-calendar-days" style="color: var(--primary-blue); margin-right: 0.3rem;"></i> Building / Property Age (Years)
+                </label>
+                <input type="number" id="property_age" class="form-control" placeholder="e.g. 5" min="0" max="60" required value="5">
+                <div class="form-hint">Age of the building structure since construction (0 to 60 years).</div>
+            </div>
+
+            <!-- 4. Annual Insurance Budget -->
+            <div class="form-group">
+                <label class="form-label" for="insurance_budget">
+                    <i class="fa-solid fa-wallet" style="color: var(--primary-blue); margin-right: 0.3rem;"></i> Annual Insurance Budget (₹)
+                </label>
+                <input type="number" id="insurance_budget" class="form-control" placeholder="e.g. 8000" min="1500" max="100000" step="500" required value="8000">
+                <div class="form-hint">Target annual spending limit for comprehensive property protection.</div>
+            </div>
+
+            <!-- 5. Required Coverage Amount -->
+            <div class="form-group">
+                <label class="form-label" for="required_coverage">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--primary-blue); margin-right: 0.3rem;"></i> Required Coverage Amount (Sum Insured in ₹)
+                </label>
+                <select id="required_coverage" class="form-control" required>
+                    <option value="2000000">₹20,00,000 (20 Lakh Essential Cover)</option>
+                    <option value="3500000">₹35,00,000 (35 Lakh Apartment Package)</option>
+                    <option value="5000000" selected>₹50,00,000 (50 Lakh Comprehensive Standard)</option>
+                    <option value="7500000">₹75,00,000 (75 Lakh High Protection)</option>
+                    <option value="10000000">₹1,00,00,000 (1 Crore High Value Villa/Commercial)</option>
+                    <option value="25000000">₹2,50,00,000 (2.5 Crore Premium Multi-Peril)</option>
+                </select>
+                <div class="form-hint">The target financial safety net you wish to secure.</div>
+            </div>
+
+            <!-- Submit Button -->
+            <div style="margin-top: 2rem;">
+                <button type="submit" id="submitBtn" class="btn btn-primary btn-lg btn-block">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Get P&C Recommendations
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/recommendations.js') }}"></script>
+<script>
+function fillExample(type) {
+    if (type === 'apartment') {
+        document.getElementById('property_type').value = 'Residential Apartment';
+        document.getElementById('property_value').value = 4500000;
+        document.getElementById('property_age').value = 4;
+        document.getElementById('insurance_budget').value = 6000;
+        document.getElementById('required_coverage').value = 3500000;
+    } else if (type === 'house') {
+        document.getElementById('property_type').value = 'Homeowners Comprehensive';
+        document.getElementById('property_value').value = 12000000;
+        document.getElementById('property_age').value = 8;
+        document.getElementById('insurance_budget').value = 15000;
+        document.getElementById('required_coverage').value = 10000000;
+    } else if (type === 'commercial') {
+        document.getElementById('property_type').value = 'Commercial Property';
+        document.getElementById('property_value').value = 6000000;
+        document.getElementById('property_age').value = 6;
+        document.getElementById('insurance_budget').value = 10000;
+        document.getElementById('required_coverage').value = 5000000;
+    }
+    showToast('Example property details loaded into form.', 'success');
+}
+</script>
+{% endblock %}

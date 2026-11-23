@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Policy Recommendations – PolicyAssist AI{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Summary Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+        <div>
+            <span class="badge badge-blue" style="margin-bottom: 0.5rem;">AI Recommendation Engine</span>
+            <h2>Top 3 Recommended Policies</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+                Ranked using your budget, coverage needs, and insurer reliability.
+            </p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+            <a href="{{ url_for('views.customer_input') }}" class="btn btn-outline">
+                <i class="fa-solid fa-pen-to-square"></i> Change Input
+            </a>
+            <button id="compareAllTopBtn" class="btn btn-primary">
+                <i class="fa-solid fa-code-compare"></i> Compare All 3
+            </button>
+        </div>
+    </div>
+
+    <!-- Active User Inputs Summary Pill -->
+    <div id="userInputSummary" class="card" style="padding: 1rem 1.5rem; margin-bottom: 2rem; background: var(--bg-light-blue); border-color: var(--border-blue);">
+        <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Top 3 Policies Grid -->
+    <div class="recs-grid" id="recommendationsContainer">
+        <div style="text-align: center; padding: 4rem; grid-column: 1/-1;">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary-blue);"></i>
+            <p style="margin-top: 1rem; color: var(--text-muted);">Loading recommendations...</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/recommendations.js') }}"></script>
+{% endblock %}

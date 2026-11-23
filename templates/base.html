@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CoverWise AI – Property & Casualty Insurance Agent{% endblock %}</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Clean Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Simple White & Light Blue Navigation Bar -->
+    <header class="navbar-wrapper">
+        <nav class="navbar container">
+            <a href="{{ url_for('views.home') }}" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-house-shield"></i>
+                </div>
+                <span>CoverWise <span class="brand-blue">AI</span></span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="{{ url_for('views.home') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('views.customer_input') }}" class="nav-link {% if request.path == '/input' %}active{% endif %}">
+                        <i class="fa-solid fa-clipboard-list"></i> Get Recommendation
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('views.recommendations') }}" class="nav-link {% if request.path == '/recommendations' %}active{% endif %}">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Recommendations
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('views.compare') }}" class="nav-link {% if request.path == '/compare' %}active{% endif %}">
+                        <i class="fa-solid fa-code-compare"></i> Policy Comparison
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Clean Minimal Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div>
+                <strong>CoverWise AI</strong> &copy; 2026 – Property & Casualty Insurance Recommendation Agent
+            </div>
+            <div>
+                <a href="{{ url_for('views.home') }}" style="margin-right: 1rem;">Home</a>
+                <a href="{{ url_for('views.customer_input') }}" style="margin-right: 1rem;">Property Input</a>
+                <a href="{{ url_for('views.compare') }}">Comparison</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

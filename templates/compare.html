@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Policy Comparison – PolicyAssist AI{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+        <div>
+            <span class="badge badge-blue" style="margin-bottom: 0.5rem;">Visual Comparison</span>
+            <h2>Compare Insurance Policies</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+                Compare 2 or 3 policies side-by-side to understand cost, coverage, and claim settlement.
+            </p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+            <button class="btn btn-outline" onclick="loadTopRecommendationsToCompare()">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Compare Recommended
+            </button>
+            <button class="btn btn-outline" onclick="clearComparison()">
+                <i class="fa-solid fa-trash-can"></i> Clear
+            </button>
+        </div>
+    </div>
+
+    <!-- Policy Selector Bar -->
+    <div class="compare-selectors-bar">
+        <label for="policySelect" style="font-weight: 600; font-size: 0.92rem; color: var(--text-dark);">
+            <i class="fa-solid fa-plus-circle" style="color: var(--primary-blue); margin-right: 0.3rem;"></i> Add Policy to Compare:
+        </label>
+        <select id="policySelect" class="form-control" style="flex: 1; min-width: 260px;">
+            <option value="">-- Choose a policy to add --</option>
+        </select>
+    </div>
+
+    <!-- Comparison Visualization & Table Content Area -->
+    <div id="compareContentArea">
+        <div style="text-align: center; padding: 4rem;">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary-blue);"></i>
+            <p style="margin-top: 1rem; color: var(--text-muted);">Loading comparison visualization...</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/compare.js') }}"></script>
+{% endblock %}

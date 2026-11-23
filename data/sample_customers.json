@@ -1,0 +1,57 @@
+[
+  {
+    "profile_id": "PROP001",
+    "name": "Aarav Sharma",
+    "property_type": "Residential Apartment",
+    "property_age": 4,
+    "annual_income": 1200000,
+    "property_value": 4500000,
+    "insurance_budget": 6000,
+    "required_coverage": 4000000,
+    "description": "Apartment owner in a high-rise society looking for comprehensive structural, contents, and water-leakage liability protection."
+  },
+  {
+    "profile_id": "PROP002",
+    "name": "Priya & Rajesh Patel",
+    "property_type": "Homeowners Comprehensive",
+    "property_age": 8,
+    "annual_income": 2400000,
+    "property_value": 12000000,
+    "insurance_budget": 15000,
+    "required_coverage": 10000000,
+    "description": "Independent villa owners seeking maximum property security against fire, earthquakes, burglary, and third-party premises liability."
+  },
+  {
+    "profile_id": "PROP003",
+    "name": "Vikram Verma",
+    "property_type": "Commercial Property",
+    "property_age": 6,
+    "annual_income": 1800000,
+    "property_value": 6000000,
+    "insurance_budget": 10000,
+    "required_coverage": 5000000,
+    "description": "Retail store & office owner requiring stock-in-trade protection, cash-in-transit, and customer slip-and-fall casualty liability."
+  },
+  {
+    "profile_id": "PROP004",
+    "name": "Neha Kulkarni",
+    "property_type": "Renters Contents & Liability",
+    "property_age": 3,
+    "annual_income": 900000,
+    "property_value": 1800000,
+    "insurance_budget": 4000,
+    "required_coverage": 1500000,
+    "description": "Tenant renting a 2BHK flat looking to protect personal electronics, laptop, furniture, and accidental liability to landlord."
+  },
+  {
+    "profile_id": "PROP005",
+    "name": "Suresh Gupta",
+    "property_type": "Landlord Shield",
+    "property_age": 12,
+    "annual_income": 1500000,
+    "property_value": 5500000,
+    "insurance_budget": 9000,
+    "required_coverage": 5000000,
+    "description": "Landlord renting out residential property, needing structural damage defense, malicious tenant cover, and loss of rent protection."
+  }
+]

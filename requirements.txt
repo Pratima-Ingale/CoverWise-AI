@@ -1,0 +1,9 @@
+# PolicyAssist AI - Requirements
+Flask>=3.0.0
+Flask-SQLAlchemy>=3.1.0
+PyMySQL>=1.1.0
+python-dotenv>=1.0.0
+pandas>=2.1.0
+
+# Optional: For Gemini LLM enhancement (if user provides GEMINI_API_KEY)
+google-genai>=0.1.1

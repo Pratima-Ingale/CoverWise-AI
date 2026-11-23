@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}CoverWise AI – Property & Casualty Insurance Recommendation Agent{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Clean Hero Section -->
+    <div class="hero-box">
+        <span class="badge badge-blue" style="margin-bottom: 1rem;">
+            <i class="fa-solid fa-house-chimney-crack"></i> Property & Casualty Advisory
+        </span>
+        <h1>CoverWise AI</h1>
+        <p>
+             Protect your residential home, apartment, commercial shop, or rental property against fire, natural catastrophes, burglary, and third-party liabilities with tailored top 3 recommendations.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="{{ url_for('views.customer_input') }}" class="btn btn-primary btn-lg">
+                <i class="fa-solid fa-arrow-right"></i> Get Recommendation
+            </a>
+            <a href="{{ url_for('views.compare') }}" class="btn btn-outline btn-lg">
+                <i class="fa-solid fa-code-compare"></i> Compare Policies
+            </a>
+        </div>
+    </div>
+
+    <!-- 3 Simple Step Cards -->
+    <div style="margin-bottom: 2.5rem;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h2>How CoverWise Works</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Three simple steps to finding the best property and casualty protection</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-house-circle-check"></i>
+                </div>
+                <h3 style="margin-bottom: 0.4rem;">1. Enter Property Details</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    Input your property type, estimated asset valuation, building age, budget, and coverage target.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <h3 style="margin-bottom: 0.4rem;">2. AI Peril & Liability Match</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    The recommendation agent evaluates coverage against fire, floods, earthquakes, theft, and third-party liability risks.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-file-shield"></i>
+                </div>
+                <h3 style="margin-bottom: 0.4rem;">3. Top 3 Ranked Policies</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    Receive the top 3 best-matching plans with transparent "Why recommended?" explanations and side-by-side comparison.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- What Our Agent Checks Box -->
+    <div class="card" style="background: white; border-color: var(--border-blue); padding: 1.75rem;">
+        <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--primary-blue); display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fa-solid fa-shield-halved"></i> What CoverWise Evaluates For Your Property:
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.9rem;">
+            <div style="background: var(--bg-page); padding: 0.85rem; border-radius: var(--radius-sm);">
+                <strong>🏠 Structure & Contents Value</strong>
+                <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.2rem;">Ensures full replacement cost coverage for your building, fittings, and household goods.</p>
+            </div>
+            <div style="background: var(--bg-page); padding: 0.85rem; border-radius: var(--radius-sm);">
+                <strong>⚖️ Casualty & Public Liability</strong>
+                <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.2rem;">Protects you from expensive lawsuits for accidental third-party injuries or neighbor property damages.</p>
+            </div>
+            <div style="background: var(--bg-page); padding: 0.85rem; border-radius: var(--radius-sm);">
+                <strong>🌪️ Natural Disaster Defense</strong>
+                <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.2rem;">Covers catastrophes like earthquakes, storms, cyclones, floods, and landslides without sub-limit penalties.</p>
+            </div>
+            <div style="background: var(--bg-page); padding: 0.85rem; border-radius: var(--radius-sm);">
+                <strong>💰 Annual Budget & High CSR</strong>
+                <p style="color: var(--text-muted); font-size: 0.82rem; margin-top: 0.2rem;">Pairs your annual premium budget with top general insurers maintaining a 95%+ Claim Settlement Ratio.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
